@@ -5,8 +5,8 @@
 
 #define SIZE 10	//Размер массива
 
-int i, k, max, s;
-int mas[SIZE], mas2[SIZE];
+int i, k, max, s, d;
+int mas[SIZE];
 
 
 int main() {
@@ -24,28 +24,17 @@ int main() {
 	}
 	printf("\n");
 
-	max = mas[0];
-	for (i = 1; i < SIZE; i++) {
-		if (mas[i] > max) {
-			max = mas[i];
-			k = i;
-		}
-	}
-	for (i = 0; i < SIZE; i++) {
-		mas2[i] = mas[i];
-	}
-
 	for (i = 0; i < k; i++) {
-		mas[i] = mas2[i + SIZE - k];
+		s = mas[SIZE - 1];
+		for (d = SIZE - 1; d > -1; d--) 
+		{
+			mas[d] = mas[d - 1];
+		}
+		mas[0] = s;
 	}
-	for (i = k; i < SIZE; i++) {
-		mas[i] = mas2[i - k];
-	}
-
 	for (i = 0; i < SIZE; i++) {
-		printf("%d ", mas[i]);		//Сдвинули массив, теперь перевернем его
+		printf("%d ", mas[i]);
 	}
-
 
 
 	printf("\n");
