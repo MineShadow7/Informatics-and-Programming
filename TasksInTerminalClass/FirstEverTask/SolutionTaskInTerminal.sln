@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FunctionsClasswork", "Funct
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortingAlgorythm", "SortingAlgorythm\SortingAlgorythm.vcxproj", "{275479F7-358E-4438-8CD1-4658DF9915F4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Recursions", "Recursions\Recursions.vcxproj", "{40D4AF17-FA76-4757-B267-F9FA6FF05687}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{275479F7-358E-4438-8CD1-4658DF9915F4}.Release|x64.Build.0 = Release|x64
 		{275479F7-358E-4438-8CD1-4658DF9915F4}.Release|x86.ActiveCfg = Release|Win32
 		{275479F7-358E-4438-8CD1-4658DF9915F4}.Release|x86.Build.0 = Release|Win32
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Debug|x64.ActiveCfg = Debug|x64
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Debug|x64.Build.0 = Debug|x64
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Debug|x86.ActiveCfg = Debug|Win32
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Debug|x86.Build.0 = Debug|Win32
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Release|x64.ActiveCfg = Release|x64
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Release|x64.Build.0 = Release|x64
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Release|x86.ActiveCfg = Release|Win32
+		{40D4AF17-FA76-4757-B267-F9FA6FF05687}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
