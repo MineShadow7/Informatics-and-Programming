@@ -15,7 +15,7 @@ void arr_generate(int *arr, int min_val, int max_val, int n) {
 		arr[i] = rand() % (max_val - min_val + 1) + min_val;
 }
 void arr_check(int* arr) {
-	for(int tries = 0; tries < 5; tries++){
+	for(int tries = 0; tries < n; tries++){
 		for (int i = 1; i < n; i++) {
 			if (arr[i] == arr[i - 1] || arr[i] == arr[i - 2] || arr[i] == arr[i - 3] || arr[i] == arr[i - 4]) {
 				if (arr[i] == 9)
@@ -55,12 +55,17 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 	printf("¬ведите максимальную длину числа (от 2 до 5): ");
 	scanf_s("%d", &n);
+
+
 	player_number = (int)malloc(n * sizeof(int));
 	comp_number = (int)malloc(n * sizeof(int));
-	arr_generate(comp_number, 0, 9, n);
+
+
+	arr_generate(comp_number, 1, 9, n);
 	for (int i = 0; i < n; i++) {
 		printf("%d", comp_number[i]);
 	}
+
 	printf("\n");
 	arr_check(comp_number);
 	for (int i = 0; i < n; i++) {
