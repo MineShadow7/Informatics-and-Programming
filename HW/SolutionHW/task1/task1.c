@@ -68,15 +68,10 @@ int main()
 
 
 	//Переменные для верхней и нижней крышки. Вводим значения в см, условий нет.
-	int lidw, lidd;
+	int lidw = bdoorw, lidd = swalld;
 	float lidt = 1.5;
 	double lidV, lidM;
 
-	printf("Введите ширину крышек шкафа:\n");
-	scanf_s("%d", &lidw);
-
-	printf("Введите глубину крышек шкафа:\n");
-	scanf_s("%d", &lidd);
 
 	//Делаем рассчет
 	lidV = lidw * lidd * lidt;
@@ -86,14 +81,12 @@ int main()
 
 
 	//Переменные для накладных дверей. Их 2, условий нет. 
-	int doorh, doorw, doort = 1;
+	int doorh = bdoorh, doorw = bdoorw, doort = 1;
 	double doorV, doorM;
 	
-	printf("Введите высоту двери:\n");
-	scanf_s("%d", &doorh);
 
-	printf("Введите ширину двери:\n");
-	scanf_s("%d", &doorw);
+
+
 
 	//Рассчет объема и массы дверей шкафа 
 	doorV = doorh * doorw * doort;
