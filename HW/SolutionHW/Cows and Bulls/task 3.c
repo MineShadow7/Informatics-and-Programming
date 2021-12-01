@@ -75,25 +75,23 @@ int player_array_input(int playernumber, int maxlen) {
 		else
 		{
 			printf("Длинна введенного числа не соответствует максимальной длине (%d), попробуйте еще раз.", maxlen);
-			break;
 			fail = 1;
+			break;
 		}
 	}
-	return fail;
+	return (fail);
 }
 
-void player_array_check(int* arr) {
+int player_array_check(int* arr, int n) {
 	int checks_failed = 0, choice = 0;
-
-	while (1) {
+	for (int tries = 0; tries < n; tries++) {
 		for (int i = 1; i < n; i++) {
 			if (arr[i] == arr[i - 1] || arr[i] == arr[i - 2] || arr[i] == arr[i - 3] || arr[i] == arr[i - 4]) {
 				checks_failed = 1;
-				break;
 			}
-			else
-				break;
 		}
+	}
+	while (1) {
 		if (checks_failed) {
 			printf("\nОбнаружено повторение цифр в введенном числе. Хотите чтобы компьютер автоматически исправил введенное число? Да(1)/Нет(0): ");
 			scanf_s("%d", &choice);
@@ -115,22 +113,25 @@ void player_array_check(int* arr) {
 		for (int i = 0; i < n; i++)
 			printf("%d", player_number[i]);
 	}
+	else {
+		return (checks_failed);
+	}
+	return (checks_failed);
 }
 
 int main() {
-	int playertemp, cows = 0, bulls = 0, win = 0, fail = 0;
+	int playertemp, cows = 0, bulls = 0, win = 0, fail_len, fail_repeat;
 
 	setlocale(LC_ALL, "Russian");
-	printf("Введите максимальную длину числа (от 2 до 5): ");
-	scanf_s("%d", &n);
+
 	while (1) {
+		printf("Введите максимальную длину числа (от 2 до 5): ");
+		scanf_s("%d", &n);
+
 		if ((n >= 2) && (n <= 5))
 			break;
-		else{
-			printf("Wrong range!\n");
-			return 0;
-		}
-			
+		else
+			printf("Число не входит в диапазон от 2 до 5!\n");
 	};
 
 	player_number = (int)malloc(n * sizeof(int));
@@ -149,16 +150,21 @@ int main() {
 	}
 
 
-
 	do {
 		printf("\nВведите число без повторений цифр: ");
 		scanf_s("%d", &playertemp);
 		
-		player_array_input(playertemp, n);
+		fail_len = player_array_input(playertemp, n);
 		printf("\n");
-		if (fail != 0)
-			player_array_check(player_number);
-		
+		if (fail_len == 0) {
+			fail_repeat = player_array_check(player_number, n);
+			if (fail_repeat) {
+				printf("\nВведите число без повторений цифр: ");
+				scanf_s("%d", &playertemp);
+			}else
+				fail_len = 0;
+		}
+
 
 		game(player_number, comp_number, &cows, &bulls, n);
 		printf("\nВы угадали коров %d, а быков %d", cows, bulls);
